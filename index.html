@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nirmaan Netra</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="dashboard">
+            <div class="sections">
+                <div class="section"><a href="rules/mcdrules.html" target = "_blank" rel = "noopener noreferrer"><span>Rules and Regulations</span></a></div>
+                <div class="section">Seized Illegal Constructions</div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <h2>Upload Construction Images</h2>
+        <p>Use this platform to upload images of ongoing constructions or registered lands. Our system will help determine whether the property is authorized or not.</p>
+        
+        <div class="upload-container">
+            <form id="uploadForm" method="POST" enctype="multipart/form-data">
+                <label for="fileUpload" class="custom-file-upload">
+                    Choose Image
+                </label>
+                <input type="file" id="fileUpload" name="fileUpload" accept="image/*" onchange="previewImage()" required>
+                <img id="imagePreview" src="" alt="Image Preview" style="display: none;" />
+                <br />
+                <input type="submit" value="Check Authorization">
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Nirmaan Netra. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
