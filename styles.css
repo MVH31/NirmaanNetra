@@ -24,6 +24,14 @@ a:active { text-decoration: none; color:#6532CD;}
     color: #6532CD;
 }
 
+.sectionsbg {
+    display : flex;
+    font-family:'Times New Roman', Times, serif;
+    font-size:xx-large;
+    color:aquamarine;
+    justify-content: center;
+}
+
 .sections {
     display: flex;
     justify-content: space-around;
