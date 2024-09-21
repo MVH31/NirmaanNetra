@@ -8,35 +8,33 @@
 </head>
 <body>
     <header>
-        <div class="dashboard">
-            <div class="sections">
-                <div class="section"><a href="rules/mcdrules.html" target = "_blank" rel = "noopener noreferrer"><span>Rules and Regulations</span></a></div>
-                <div class="section">Seized Illegal Constructions</div>
-            </div>
+        <div class="logo-space">
+            <img src="./bgs/nirmaan_netra_logo.jpeg.jpg">
         </div>
+        <h1>NIRMAN NETRA</h1>
+        <nav class = "dashboard">
+            <ul>
+                <li><a href="https://dfs.delhi.gov.in/dfs/delhi-building-bye-law-related-fire#:~:text=Entrance%20to%20fire%20escape%20shall,constructed%20of%20non%2Dcombustible%20materials."
+                     target="_blank" rel = "noopener noreferrer">Rules and Regulations</a></li>
+                <li><a href="#about-us">About Us</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main>
-        <h2>Upload Construction Images</h2>
-        <p>Use this platform to upload images of ongoing constructions or registered lands. Our system will help determine whether the property is authorized or not.</p>
-        
-        <div class="upload-container">
-            <form id="uploadForm" method="POST" enctype="multipart/form-data">
-                <label for="fileUpload" class="custom-file-upload">
-                    Choose Image
-                </label>
-                <input type="file" id="fileUpload" name="fileUpload" accept="image/*" onchange="previewImage()" required>
-                <img id="imagePreview" src="" alt="Image Preview" style="display: none;" />
-                <br />
-                <input type="submit" value="Check Authorization">
-            </form>
+    <main style="background-image: url('./bgs/redFort.jpg');">
+        <div class="container">
+            <div class="button-container mainbtncon">
+                <!-- Button linking to the Authorization page -->
+                <a href="authorization.html" class="btn auth-btn">CHECK AUTHORIZATION</a>
+                
+                <!-- Button linking to the Regulation page -->
+                <a href="regulations.html" class="btn reg-btn">CHECK REGULATIONS</a>
+            </div>
         </div>
     </main>
 
     <footer>
         <p>&copy; 2024 Nirmaan Netra. All rights reserved.</p>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>

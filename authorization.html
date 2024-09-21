@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authorization</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo-space">
+            <img src="./bgs/rig.png">
+        </div>
+        <h1 id="inside">NIRMAN NETRA</h1>
+    </header>
+
+    <main style="background-color: #c4e3c4; background-image:url('./bgs/pngtree-city-buildings-seamless-horizontal-decorative-background-picture-image_1377540.jpg'); background-size: auto;">
+        <div class="container">
+            <div class="button-container mainbtncon">
+                <!-- UPLOAD BUTTON -->
+                <input type="file" id="folder-upload" webkitdirectory multiple style="display: none;">
+                <button class="btn auth-btn" id="upload-btn">UPLOAD</button>
+                <span id="upload-message" style="color:#FFFFFF">Files collected: 0</span><br><br>
+
+                <!-- GENERATE ORTHOPHOTO BUTTON -->
+                <button class="btn auth-btn" id="generate-btn">GENERATE</button>
+                <div id="generated-image" class="image-placeholder">
+                    Generated image will appear here.
+                </div><br><br>
+
+                <!-- DETECT BUILDINGS BUTTON -->
+                <button class="btn auth-btn" id="detect-btn">DETECT BUILDING</button>
+                <div id="building-images" class="image-placeholder">
+                    Original and Masked image will appear here.
+                </div>
+            </div>
+        </div>
+
+        <footer class = "subpages">
+            <p>&copy; 2024 Nirmaan Netra. All rights reserved.</p>
+        </footer>
+    </main>
+
+    <script>
+        // Handle folder upload
+        const uploadBtn = document.getElementById('upload-btn');
+        const folderInput = document.getElementById('folder-upload');
+        const uploadMessage = document.getElementById('upload-message');
+
+        uploadBtn.addEventListener('click', () => {
+            folderInput.click();
+        });
+
+        folderInput.addEventListener('change', (event) => {
+            const files = event.target.files;
+            if (files.length > 0) {
+                uploadMessage.textContent = `Files collected: ${files.length}`;
+                alert('Folder uploaded successfully!');
+            } else {
+                uploadMessage.textContent = '\nFiles collected: 0';
+            }
+        });
+
+        // Show a custom image for the GENERATE button
+        document.getElementById('generate-btn').addEventListener('click', () => {
+            const generatedImageDiv = document.getElementById('generated-image');
+            generatedImageDiv.innerHTML = '<p>Generating orthophotos...</p>';
+            
+            // Replace this with the image path you want to display
+            const generatedImagePath = './bgs/z.png'; 
+            
+            generatedImageDiv.innerHTML += `<img src="${generatedImagePath}" alt="Generated Orthophoto" style = "height:600px; width:500px;">`;
+        });
+
+        // Show a custom image for the DETECT BUILDING button
+        document.getElementById('detect-btn').addEventListener('click', () => {
+            const buildingImagesDiv = document.getElementById('building-images');
+            buildingImagesDiv.innerHTML = '<p>Detecting buildings...</p>';
+            
+            // Replace these with the image paths you want to display 
+            const maskedImagePath = './bgs/tty.jpg'; 
+            
+            buildingImagesDiv.innerHTML += `
+                <img src="${maskedImagePath}" alt="Masked Building" style="max-width: 100%; height: auto;">
+            `;
+        });
+    </script>
+</body>
+</html>

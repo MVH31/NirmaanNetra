@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel = 'stylesheet' href = "styles.css"></link>
+    <script src="script.js"></script>
+</head>
+<body>
+    <header><div class = "dashboard"></div></header>
+    <main>
+        <div class="upload-container">
+            <div class="upload-container">
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <label for="fileUpload" class="custom-file-upload">
+                        Choose Image
+                    </label>
+                    <input type="file" id="fileUpload" name="fileUpload" accept="image/*,.tiff,.tif" onchange="previewImage()" required>
+                    <div id="imagePreviewContainer">
+                        <img id="imagePreview" src="" alt="Image Preview" style="display: none;" />
+                    </div>
+                    <br />
+                    <input type="button" value="Check Authorization" onclick="openInNewTab('auth.html')" />
+                    <input type="button" value="Check Regulations" onclick="openInNewTab('reg.html')" />
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

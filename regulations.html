@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regulation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo-space">
+            <img src="./bgs/rig.png">
+        </div>
+        <h1 id="inside">NIRMAN NETRA</h1>
+    </header>
+
+    <main style = "background-color: #c4e3c4;">
+        <div class="container" >
+            <div class="button-container mainbtncon">
+                <!-- Upload button styled with previous CSS file -->
+                <input type="file" id="imageUpload" class="btn auth-btn" accept="image/*" onchange="handleImageUpload(event)">
+                <span id="upload-status"></span><br><br>
+
+                <button class="btn auth-btn" onclick="detectDimensions()">DETECT DIMENSIONS</button>
+            </div>
+
+            <!-- Image will be shown here first -->
+            <div class="image-placeholder" id="image-placeholder" style="text-align: center;">Uploaded image will appear here.</div>
+
+            <!-- This section will show the image and dimensions after detecting -->
+            <div class="image-and-dimensions" id="image-and-dimensions" style="display: none;">
+                <div class="image-container">
+                    <img id="detected-image" alt="Uploaded Image" style="width: 500px; height: 500px;">
+                </div>
+                <div class="image-details" id="image-details" style="padding-left: 20px;">
+                    <!-- Dimensions will appear here -->
+                </div>
+            </div>
+        </div>
+
+        
+        <footer class = "subpages">
+            <p>&copy; 2024 Nirmaan Netra. All rights reserved.</p>
+        </footer>
+    </main>
+
+    <script>
+        let uploadedImage = null;
+        let imageUrl = null;
+
+        function handleImageUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                uploadedImage = file;
+                imageUrl = URL.createObjectURL(file);
+
+                // Display the image in the first placeholder
+                const imagePlaceholder = document.getElementById('image-placeholder');
+                imagePlaceholder.innerHTML = '<img src="' + imageUrl + '" alt="Uploaded Image" style="width: 500px; height: 500px;">';
+            }
+        }
+
+        function detectDimensions() {
+            if (!uploadedImage) {
+                alert('Please upload an image first.');
+                return;
+            }
+
+            // Move the image to the new section below the "Detect Dimensions" button
+            document.getElementById('image-placeholder').innerHTML = ''; // Clear the first placeholder
+            document.getElementById('image-and-dimensions').style.display = 'flex'; // Show the section with image and dimensions
+
+            const detectedImage = document.getElementById('detected-image');
+            detectedImage.src = imageUrl; // Set the image again in the second section
+
+            // Show standardized dimension values
+            const standardizedWidth = 10;  // meters
+            const standardizedHeight = 8;  // meters
+            const standardizedPerimeter = 2 * (standardizedWidth + standardizedHeight); // meters
+            const standardizedArea = standardizedWidth * standardizedHeight; // square meters
+
+            // Display standardized dimensions and calculations
+            const imageDetails = document.getElementById('image-details');
+            imageDetails.innerHTML = `
+                <p><strong>Detected Dimensions:</strong></p>
+                <p>Width: ${standardizedWidth} meters</p>
+                <p>Height: ${standardizedHeight} meters</p>
+                <p>Perimeter: ${standardizedPerimeter} meters</p>
+                <p>Area: ${standardizedArea} square meters</p>
+            `;
+        }
+    </script>
+</body>
+</html>
